@@ -1,0 +1,72 @@
+.l-header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+
+    &__nav-bar {
+        position: relative;
+        z-index: 1;
+        @include flex(space-between)
+    }
+
+    &__brand {
+        cursor: pointer;
+        @include flex();
+    }
+
+    &__menu {
+        overflow: hidden;
+        &:has(> #closer) {
+            position: absolute;
+            right: 128px;
+            .header__menu { transform: translateY(100%) }
+            @include size($screen-lg) { right: 0 }
+        }
+        &:has(> #opener) {
+            .is-opened & { pointer-events: none }
+        }
+        #opener, #closer { will-change: transform }
+    }
+
+    &__nav-menu {
+        width: 100%;
+        height: 100%;
+        @extend %l-wrap;
+        @include pos(0, 0);
+        @include hide(.4s, (opacity, visibility), cubic-bezier(.34,.52,0,1));
+        .is-opened & { @include show() }
+        @include size($screen-lg) {
+            @include flex($justify: flex-start)
+        }
+    }
+
+    &__links { 
+        padding: 134px 0 0 70%;
+        @include size($screen-lg) { padding: 0 }
+    }
+
+    &__socials {
+        position: absolute;
+        padding: inherit;
+        padding-bottom: 24px;
+        width: 100%;
+        bottom: 0;
+        left: 0;
+        @include flex(flex-end);
+        @include size($screen-lg) { justify-content: space-between }
+    }
+}
+
+.header {
+    &__brand .l-logo {
+        margin-right: 10px;
+        @include with-bg(80px, 2.5);
+        @include size($screen-sm) { @include with-bg(70px, 2.5) }
+    }
+
+    &__links .l-link:first-child { margin-bottom: 42px }
+    &__socials .link { 
+        &:not(:last-child) { margin-right: 64px }
+        @include size($screen-lg) { margin: 0!important }
+    }
+}

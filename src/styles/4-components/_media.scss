@@ -1,0 +1,50 @@
+.l-panels {
+    width: 40vw;
+    aspect-ratio: 40 / 30;
+    @include size($screen-lg) { width: 43vw }
+    @include size($screen-md) { display: none }
+}
+
+.panels {
+    .l-panel {
+        position: absolute;
+        overflow: hidden;
+        width: 24vw;
+        height: 14vw;
+        
+        &:nth-child(1) {
+            right: -53%;
+            top: .3%;
+        }    
+        &:nth-child(2) {
+            right: -40.5%;
+            top: 15.3%;
+            z-index: -2;
+        }
+        &:nth-child(3) {
+            bottom: .3%;
+            left: -52.6%;
+        }
+        &:nth-child(4) {
+            bottom: 13.8%;
+            left: -40.2%;
+            z-index: -2;
+        }
+
+        @include size($screen-lg) { 
+            width: 28vw;
+            height: 16.5vw;
+        }
+    }
+
+    img, video {
+        transition: all 280ms ease;
+        transition-property: opacity, transform;
+        will-change: transform, opacity;
+
+        &.is-changing {
+            transform: scale(1.1);
+            opacity: 0;
+        }
+    }
+}

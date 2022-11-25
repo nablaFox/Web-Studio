@@ -1,0 +1,60 @@
+/* GLOBALS */
+
+.header {
+    &__nav-menu { background-color: $main-bg-color }
+    &__menu { font-weight: 600 }
+    &__links .link {
+        font-family: 'manuka';
+        text-transform: uppercase;
+        font-size: 100px;
+        line-height: 88%;
+        font-weight: 500
+    }
+    &__socials .link { font-family: 'roboto-mono' }   
+}
+
+.section {
+    &__title .title {
+        text-align: center;
+        font-family: 'manuka';
+        text-transform: uppercase;
+        user-select: none;
+        font-size: 14vw;
+        @include size($screen-lg) { font-size: 16.5vw }
+        @include size($screen-md) { font-size: 80px }
+    }
+    &__link .link {
+        font-family: 'general-sans';
+        text-transform: uppercase;
+        font-size: 12px;
+        opacity: .9;
+        @include underline(1.5px, white, .6);
+    }
+    &__info {
+        .title {
+            text-transform: uppercase;
+            font-family: 'general-sans';
+            font-size: 12px;
+            margin-bottom: 6px;
+            line-height: 88%;
+        }
+        .info {
+            font-family: 'roboto-mono';
+            line-height: 1.64;
+        }
+    }
+}
+
+/* COMPONENTS */
+
+.header__brand .name {
+    font-family: 'sol';
+    font-size: 18.5px;
+}
+
+.index-slider .box {
+    border: 1px solid white;
+    transition: transform 700ms cubic-bezier(.34,.52,0,1);
+}
+
+.panels .panel {  background-color: #1d1d1d }

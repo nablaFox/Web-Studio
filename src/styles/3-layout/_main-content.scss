@@ -1,0 +1,27 @@
+// .l-main { }
+
+.l-section {
+    display: none;
+
+    &__link {
+        @include pos(50%, $b: 16%, $x-off: -50%);
+        @include size($screen-sm) { bottom: 13% }
+    }
+
+    &__bottom {
+        padding-top: 0px!important;
+        width: 100%;
+        @extend %l-wrap;
+        @include flex(space-between);
+        @include pos($b: 0, $l: 0);
+        @include size($screen-lg) { display: none }
+    }
+
+    &__info {
+        &--right { text-align: right }
+    }
+   
+    &.is-active { display: block; }
+}
+
+.section__link .l-link { padding: 8px 14px }
