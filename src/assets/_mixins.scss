@@ -1,0 +1,59 @@
+@mixin flex-center() {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin abs-center-x() {
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%)
+}
+
+@mixin abs-center-y() {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%)
+}
+
+@mixin abs-center() {
+	@include abs-center-x();
+	@include  abs-center-y()
+}
+
+@mixin space-between() {
+	display: flex;
+	justify-content: space-between;
+}
+
+@mixin vert-fixed($bottom: unset, $top: unset) {
+	position: fixed;
+	top: $top;
+	bottom: $bottom;
+	bottom: $bottom;
+	left: 0;
+}
+
+@mixin underline($height, $bg, $op: none, $trans: none, $radius: none) {
+    position: relative;
+    display: inline-block;
+
+    &:after {
+        content: "";
+        display: block;
+        background: $bg;
+        opacity: $op;
+        transition: $trans;
+        border-radius: $radius;
+        height: $height;
+        width: 100%;
+    }
+}
+
+@mixin minWidthSize($breakpoint) {
+	@media screen and (min-width: #{$breakpoint}) { @content }
+};
+
+@mixin maxWidthSize($breakpoint) {
+	@media screen and (max-width: #{$breakpoint}) { @content }
+};
