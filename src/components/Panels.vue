@@ -11,16 +11,18 @@ const { width } = useWindowSize()
 
 <template>
 
+
 	<div class="panels" v-if="width >= 768">
-        <div class="panel" v-for="i in 4">
+        <div class="panel" v-for="i in 4"> 
             <img
+                v-if="i !== 3"
                 class="test"
-                v-if="i < 4"
                 :src="images[i - 1]" 
                 alt="panel"
             >
+
             <video
-                v-else
+                v-if="i === 3"
                 autoplay 
                 muted 
                 loop 
@@ -46,7 +48,6 @@ const { width } = useWindowSize()
     height: 14vw;
     position: absolute;
     overflow: hidden;
-    background-color: red;
 
     &:nth-child(1) {
         right: -53%;

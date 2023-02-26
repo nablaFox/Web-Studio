@@ -64,7 +64,7 @@ const getVideoUrl = (video: string) => (
 
 		<Panels
 			:images="images.map(img => getImgUrl(img))"
-			:video-src="getVideoUrl('test0.jpg')"
+			:video-src="getVideoUrl(video)"
 		/>
 	</main>
 
@@ -113,7 +113,7 @@ h1 {
 }
 .info { font-family: 'roboto-mono' }
 
-.container:nth-of-type(2) .subtitle { text-align: right }
+.container:nth-of-type(2) { text-align: right }
 
 .v-enter-active,
 .v-leave-active {

@@ -15,7 +15,7 @@ watch(pageIndex, () => {
 	
     if (pageIndex.value === 0) page = 'Home'
     else if (pageIndex.value === 1) page = 'About'
-	else if (pageIndex.value === 2) page = 'Test'
+	else if (pageIndex.value === 2) page = 'Collaboration'
 	else if (pageIndex.value === 3) page = 'Work'
 	else if (pageIndex.value === 4) page = 'Fun'
 

@@ -15,12 +15,15 @@ const { width } = useWindowSize()
 const swiper = ref<any>(null)
 
 const destinations = [
-    { image: '@/assets/images/test0.jpg', href: '/' },
-    { image: '@/assets/images/test1.jpg', href: '/about' },
-    { image: '@/assets/images/test1.jpg', href: '/test' },
-    { image: '@/assets/images/test1.jpg', href: '/work' },
-    { image: '@/assets/images/test1.jpg', href: '/fun' }
+    { image: 'test7.png', href: '/' },
+    { image: 'test8.png', href: '/about' },
+    { image: 'test6.png', href: '/collaboration' },
+    { image: 'test5.jpg', href: '/work' }
 ]
+
+const getImgUrl = (img: string) => (
+	new URL(`/src/assets/images/${img}`, import.meta.url).href
+)
 
 watch(
     props,
@@ -38,7 +41,7 @@ register()
             :spaceBetween="10"
             :slidesPerView="3"
             :breakpoints="{
-                685: { slidesPerView: 5 }
+                685: { slidesPerView: 4 }
             }"
             :navigation="{
                 nextEl: '.next-btn',
@@ -48,7 +51,7 @@ register()
             <swiper-slide v-for="dest, i in destinations">
                 <RouterLink :to="dest.href">
                     <img
-                        src="@/assets/images/test0.jpg" 
+                        :src="getImgUrl(dest.image)" 
                         class="thumbnail"
                         alt="thumbnail"
                         width="64"
@@ -88,7 +91,7 @@ register()
 
 footer {
     @include abs-center-x();
-    @include minWidthSize(685px) { width: 360px };
+    @include minWidthSize(685px) { width: 276px };
     gap: 10px;
     width: 212px;
     bottom: 32px;
